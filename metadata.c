@@ -158,6 +158,8 @@ void metadata_cover_image(const char *buf, int len, const char *ext) {
     }
     close(cover_fd);
 
+    chmod(path, 0744);
+
     debug(1, "Cover Art file is %s\n", path);
     metadata_set(&player_meta.artwork, path+strlen(dir)+1);
 
