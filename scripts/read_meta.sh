@@ -1,6 +1,7 @@
 #!/bin/bash
 
-pipe=/var/www/office.magnet.me/shairport/now_playing
+api=http://localhost:8000/now_playing
+pipe=/Users/ryankolak/src/shairport/metadata/now_playing
 datafile=$pipe.json
 
 stringify() {
@@ -15,6 +16,7 @@ while read -ru 4 line ; do
     echo '{' > $datafile
   elif [ -z "$line" ]; then
     echo '}' >> $datafile
+    curl -H "Accept: application/json" -H "Content-type: application/json" -X POST --data @$datafile $api
     continue
   fi
 

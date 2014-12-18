@@ -1,11 +1,3 @@
-ShairPort is no longer maintained
-=========
-
-As I no longer use Shairport myself, I am no longer maintaining or supporting Shairport.
-Thanks to everyone who has contributed over the years; it's been a great experience.
-For the ongoing user, there are a great many forks and ports to choose from now, many of which are of a very high quality and well maintained.
-
-— James
 
 ShairPort
 ---------
@@ -30,6 +22,14 @@ Optionally:
 Debian/Raspbian users can get the basics with
 `apt-get install libssl-dev libavahi-client-dev libasound2-dev`
 
+Installing on a mac is also simple:
+
+```sh
+brew install pkg-config libao
+./configure
+make
+```
+
 
 Runtime Requirements
 --------------------
@@ -42,7 +42,12 @@ How to get started
 ```
 ./configure
 make
-./shairport -a 'My Shairport Name'
+./shairport -a 'el_el_see' -M metadata
+```
+
+to redirect the output to another airplay device:
+```
+./shairport -a 'el_el_see' -M metadata -o ao -- -d macosx -o dev=Simple.Music
 ```
 
 The triangle-in-rectangle AirTunes (now AirPlay) logo will appear in the iTunes status bar of any machine on the network, or on iPod/iPhone play controls screen. Choose your access point name to start streaming to the ShairPort instance.
